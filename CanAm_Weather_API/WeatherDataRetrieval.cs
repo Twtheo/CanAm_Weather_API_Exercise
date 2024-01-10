@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CanAm_Weather_API.Models;
+using Newtonsoft.Json;
 
 namespace CanAm_Weather_API
 {
@@ -23,7 +19,7 @@ namespace CanAm_Weather_API
             //[ AL, AK, AS, AR, AZ, CA, CO, CT, DE, DC, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, OH, OK, OR, PA, PR, RI, SC, SD, TN, TX, UT, VT, VI, VA, WA, WV, WI, WY, MP, PW, FM, MH ]
         }
 
-        public async Task<string> GetEntitiesAsync(string state)
+        public async Task<Stations> GetEntitiesAsync(string state)
         {
             try
             {
@@ -39,16 +35,21 @@ namespace CanAm_Weather_API
 
                 //HttpResponseMessage response = await _httpClient.GetAsync("https://api.weather.gov/stations?state=CO&limit=500");
 
-                Console.WriteLine("Content: " + response.Content);
+                var stationList = JsonConvert.DeserializeObject<Stations>(response.Content.ReadAsStringAsync().Result);
 
-                return response.Content.ToString();
+                //Console.WriteLine("Content: " + response.Content);
+
+                string url = "http://localhost:23423";
+                System.Diagnostics.Process.Start(url);
+
+                return stationList;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            return "failed";
+            return new Stations();
         }
 
 

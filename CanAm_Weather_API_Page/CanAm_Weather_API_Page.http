@@ -1,0 +1,6 @@
+@CanAm_Weather_API_Page_HostAddress = http://localhost:5169
+
+GET {{CanAm_Weather_API_Page_HostAddress}}/CanAmWeatherApi/
+Accept: application/json
+
+###

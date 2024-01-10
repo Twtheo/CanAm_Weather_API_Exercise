@@ -1,4 +1,4 @@
-﻿
+﻿global using System.Net.Http.Headers;
 
 namespace CanAm_Weather_API
 {
@@ -23,7 +23,6 @@ namespace CanAm_Weather_API
             {
                 Console.WriteLine("Please enter a state using it's state code eg. 'CO' for Colorado: ");
                 string state = Console.ReadLine();
-                Console.WriteLine(state);
 
                 WeatherDataRetrieval weatherDataRetrieval = new WeatherDataRetrieval();
 
