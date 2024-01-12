@@ -8,5 +8,5 @@ There are three endpoints:
   3. Get basic weather forecast for the week and hourly via x,y coordinates.
 
 Endpoint 3 usage explained: To get x,y coordinates of a location you desire you should use the station information endpoint first, from here you can scroll through the data given and find a
-station from which you want forecast information from. Here you will find two coordinate points, these are the points you can enter into endpoint 3, this will retrieve the hourly and 
+station from which you want forecast information. Here you will find two coordinate points, these are the points you can enter into endpoint 3, this will retrieve the hourly and 
 weekly forecast for that location.
